@@ -1,8 +1,0 @@
-### Lint django files
-djlint . --extension=html.j2 --lint
-
-### Check format django files
-djlint . --extension=html.j2 --check
-
-### reformat django files
-djlint . --extension=html.j2 --reformat
