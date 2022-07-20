@@ -7,4 +7,4 @@ assignees: cmuck2000
 
 ---
 
-As a x I want to x So that x
+As a x I want to x So that I can x
