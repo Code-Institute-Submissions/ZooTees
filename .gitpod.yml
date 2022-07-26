@@ -1,0 +1,7 @@
+vscode:
+  extensions:
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - formulahendry.auto-close-tag
+    - ms-toolsai.jupyter
+    - batisteo.vscode-django
