@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      {% block meta %}
+    {% block meta %}
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <meta charset="utf-8" />
       <meta
@@ -39,26 +39,24 @@
             href="/"
             class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
           >
-            <svg
-              class="bi me-2"
-              width="40"
-              height="32"
-              role="img"
-              aria-label="Bootstrap"
-            >
-              <use xlink:href="#bootstrap"></use>
-            </svg>
+          ZT
           </a>
 
           <ul
             class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
           >
             <li>
-              <a href="#" class="nav-link px-2 link-secondary">Overview</a>
+              <a href="#" class="nav-link px-2 link-dark">All Products</a>
             </li>
-            <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+            <li>
+              <a href="#" class="nav-link px-2 link-dark">Sale!</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-2 link-dark">Collections</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-2 link-dark">Win</a>
+            </li>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -90,11 +88,17 @@
               class="dropdown-menu text-small"
               aria-labelledby="dropdownUser1"
             >
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+                <li><a class="dropdown-item" href="#">Product Management</a></li>
+              {% endif %}
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
+              {% else %}
+                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -102,18 +106,14 @@
     </header>
 
     {% if messages %}
-      <div class="message-container"></div>
-    {% endif %}
-    {% block page_header %}
-    {% endblock %}
-    {% block content %}
-    {%endblock %}
-    {% block postloadjs %}
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"
-      ></script>
+    <div class="message-container"></div>
+    {% endif %} {% block page_header %} {% endblock %} {% block content %}
+    {%endblock %} {% block postloadjs %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
     {% endblock %}
   </body>
 </html>
