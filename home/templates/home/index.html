@@ -3,23 +3,28 @@
 {% block content %}
 
   {% comment %} bootstrap exapmle snippet {% endcomment %}
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">ZooTees</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">
-        This is going to be a cool description of what the brand is,
-        and explain what the buttons below do. but for now it is just
-        useless text. zoo tees is all about being in the zoo in a tee.
-      </p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
-          Shop Now
-        </button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-          View Collections
-        </button>
+  <main id="main-home">
+    <video autoplay muted loop id="home-vid">
+      <source src="/media/Man sitting near a waterfall.mp4" type="video/mp4">
+    </video>
+    <div class="px-4 py-5 my-5 mx-5 text-center bg-light text-dark bg-opacity-75">
+      <h1 class="display-5 fw-bold">ZooTees</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          This is going to be a cool description of what the brand is,
+          and explain what the buttons below do. but for now it is just
+          useless text. zoo tees is all about being in the zoo in a tee.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-success btn-lg px-4 gap-3">
+            Shop Now
+          </button>
+          <button type="button" class="btn btn-success btn-lg px-4">
+            View Collections
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
 {% endblock %}
