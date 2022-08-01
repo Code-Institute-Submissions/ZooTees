@@ -5,3 +5,6 @@ vscode:
     - formulahendry.auto-close-tag
     - ms-toolsai.jupyter
     - batisteo.vscode-django
+    - donjayamanne.githistory
+    - esbenp.prettier-vscode
+    - ecmel.vscode-html-css
