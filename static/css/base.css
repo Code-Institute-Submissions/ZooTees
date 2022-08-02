@@ -2,6 +2,17 @@ html {
   height: 100%;
 }
 
+/* Logo classes */
+.logo-letter-z {
+  width: 4rem;
+  height: 4rem;
+}
+
+.logo-letter-t {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
 /* main homepage video rules */
 #home-vid {
   width: 100%;
