@@ -15,10 +15,6 @@ class Category(models.Model):
 class Collection(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
-    category = models.ForeignKey(
-        "Category", null=True, blank=True, on_delete=models.CASCADE
-    )
-
     def __str_(self):
         return self.name
 
@@ -26,6 +22,9 @@ class Collection(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(
         "Category", null=True, blank=True, on_delete=models.SET_NULL
+    )
+    collection = models.ForeignKey(
+        "Collection", null=True, blank=True, on_delete=models.SET_NULL
     )
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
