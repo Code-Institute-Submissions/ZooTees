@@ -64,11 +64,16 @@
             </li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <form
+            class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+            method="GET"
+            action="{% url 'products' %}"
+          >
             <input
-              type="search"
+              type="text"
+              name="q"
               class="form-control"
-              placeholder="Search..."
+              placeholder="Search our products"
               aria-label="Search"
             />
           </form>
