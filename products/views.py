@@ -9,6 +9,13 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    collection = None
+
+    if request.GET:
+        if "collection" in request.GET:
+            collection = request.GET["collection"].split(",")
+            products = products.filter(collection__name__in=collection)
+            collection = Collection.objects.filter(name__in=collection)
 
     if request.GET:
         if "q" in request.GET:
@@ -23,6 +30,7 @@ def all_products(request):
     context = {
         "products": products,
         "search_term": query,
+        "current_collection": collection,
     }
 
     return render(request, "products/products.html", context)
