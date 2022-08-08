@@ -49,3 +49,9 @@ html {
 .border-black {
   border: 1px solid black !important;
 }
+
+/* collection images max size */
+.collection-image {
+  max-height: 500px;
+  max-width: 500px;
+}
