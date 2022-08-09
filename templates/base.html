@@ -51,7 +51,7 @@
             class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
           >
             <li>
-              <a href="{% url "products" %}?sort=category&direction=asc" class="nav-link px-2 link-dark">All Products</a>
+              <a href="{% url "products" %}?sort=collection&direction=asc" class="nav-link px-2 link-dark">All Products</a>
             </li>
             <li>
               <a href="{% url "collections" %}" class="nav-link px-2 link-dark">Collections</a>
@@ -64,7 +64,7 @@
           <form
             class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
             method="GET"
-            action="{% url 'products' %}?sort=price&direction=desc"
+            action="{% url "products" %}?sort=price&direction=desc"
           >
             <input
               type="text"

@@ -1,3 +1,4 @@
+""" product views """
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render, reverse
@@ -22,12 +23,13 @@ def all_products(request):
             if sortkey == "name":
                 sortkey = "lower_name"
                 products = products.annotate(lower_name=Lower("name"))
-
-        if "direction" in request.GET:
-            direction = request.GET["direction"]
-            if direction == "desc":
-                sortkey = f"-{sortkey}"
-        products = products.order_by(sortkey)
+            if sortkey == "collection":
+                sortkey = "collection__name"
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortkey = f"-{sortkey}"
+            products = products.order_by(sortkey)
 
         if "collection" in request.GET:
             collection = request.GET["collection"].split(",")
@@ -37,10 +39,14 @@ def all_products(request):
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                )
                 return redirect(reverse("products"))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query
+            )
             products = products.filter(queries)
 
     current_sorting = f"{sort}_{direction}"
