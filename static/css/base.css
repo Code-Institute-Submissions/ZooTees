@@ -50,6 +50,19 @@ html {
   border: 1px solid black !important;
 }
 
+.btn-outline-black {
+  background: white;
+  color: black !important;
+  border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+  background: black;
+  color: white !important;
+}
+
 /* collection images max size */
 .collection-image {
   max-width: 90%;
