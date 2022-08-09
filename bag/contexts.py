@@ -1,12 +1,14 @@
-
+""" bag contents & delivery context processor"""
 
 def bag_contents(request):
-
+    """ bag contents & delivery context processor"""
     bag_items = []
     total = 0
     product_count = 0
-    delivery = 10
+    delivery = 0
 
+    if product_count > 0:
+        delivery = 10
 
     grand_total = delivery + total
 
