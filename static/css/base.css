@@ -63,6 +63,12 @@ html {
   color: white !important;
 }
 
+.btt-link,
+.update-link,
+.remove-it {
+  cursor: pointer;
+}
+
 /* collection images max size */
 .collection-image {
   max-width: 90%;
