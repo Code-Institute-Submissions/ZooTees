@@ -90,13 +90,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img
-                src="https://github.com/mdo.png"
-                alt="mdo"
-                class="rounded-circle"
-                width="32"
-                height="32"
-              />
+              <i class="fa fa-user fa-lg" aria-hidden="true"></i>
             </a>
             <ul
               class="dropdown-menu text-small"
@@ -106,7 +100,7 @@
               {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="#">Product Management</a></li>
               {% endif %}
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url "profile" %}">Profile</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
               {% else %}
