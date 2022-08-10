@@ -29,7 +29,7 @@
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
                         <div class="col">
-                            <small class="text-dark bg-white">Order Info:</small>
+                            <small class="text-white  bg-dark">Order Info:</small>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-dark bg-white">Order Details:</small>
+                            <small class="text-white  bg-dark">Order Details:</small>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-dark bg-white">Delivering To:</small>
+                            <small class="text-white  bg-dark">Delivering To:</small>
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-dark bg-white">Billing Info:</small>
+                            <small class="text-white  bg-dark">Billing Info:</small>
                         </div>
                     </div>
 
@@ -192,12 +192,21 @@
         </div>
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
-				<a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
-					<span class="icon mr-2">
-						<i class="fas fa-bag-shopping"></i>
-					</span>
-					<span class="text-uppercase">Back to Shop!</span>
-				</a>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to Profile</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-bag-shopping"></i>
+                        </span>
+                        <span class="text-uppercase">Back to Shop!</span>
+                    </a>
+                {% endif %}
 			</div>
 		</div>
     </div>
