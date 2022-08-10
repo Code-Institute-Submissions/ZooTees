@@ -12,12 +12,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-
 if os.path.isfile("env.py"):
     import env
 
 development = os.environ.get("DEVELOPMENT", False)
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
