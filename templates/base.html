@@ -64,7 +64,11 @@
               <a href="{% url "collections" %}" class="nav-link px-2 link-dark">Collections</a>
             </li>
             <li>
-              <a href="{% url "raffle" %}" class="nav-link px-2 link-dark">Win</a>
+              {% if request.user.is_authenticated %}
+                <a href="{% url "raffle" %}" class="nav-link px-2 link-dark">Win</a>
+              {% else %}
+                <a href="{% url "raffle_login" %}" class="nav-link px-2 link-dark">Win</a>
+              {% endif %}
             </li>
           </ul>
 

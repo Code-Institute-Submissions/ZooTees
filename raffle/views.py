@@ -30,23 +30,15 @@ def raffle(request):
     else:
         entry_form = UserEntryForm()
 
-
     template = "raffle/raffle.html"
     context = {"entry_form": entry_form}
 
     return render(request, template, context)
 
-    # if request.method == "POST":
-    #     profile = UserProfile.objects.get(user=request.user)
-    #     form = UserEntryForm(initial={"user_profile": profile})
-    #     if form.is_valid():
-    #         form.save()
-    #         messages.success(request, "Successfully entered raffle!")
-    #         return render(request, "home/index.html")
-    # else:
-    #     form = UserEntryForm()
 
-    # template = "raffle/raffle.html"
-    # context = {"form": form}
-
-    # return render(request, template, context)
+def raffle_login(request):
+    """shows error message and redirects user if they are not logged in"""
+    messages.error(
+        request, "You need to be signed in to register for the raffle!"
+    )
+    return redirect("home")

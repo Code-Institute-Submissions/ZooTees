@@ -1,0 +1,12 @@
+{
+    "python.linting.pylintArgs": [
+        "--django-settings-module=ZooTees.settings",
+        "--load-plugins=pylint_django"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "80"
+    ]
+}
