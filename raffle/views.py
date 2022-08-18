@@ -1,31 +1,52 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserEntryForm
 from profiles.models import UserProfile
+from .forms import UserEntryForm
 
 
 # Create your views here.
-def raffle_entry(request):
+def raffle(request):
     """Add a raffle entry"""
-    if request.method == 'POST':
-        form = UserEntryForm(request.POST)
-        if form.is_valid():
-            if request.user.is_authenticated:
-                profile = UserProfile.objects.get(user=request.user.id)
-                UserEntryForm.user_profile = profile
-                form.save()
-            messages.success(request, 'Successfully entered raffle!')
-            return render(request, "home/index.html")
+    if request.method == "POST":
+        user_profile = UserProfile.objects.get(user=request.user)
+        form_data = {
+            "collection": request.POST["collection"],
+            "description": request.POST["description"],
+            "user_profile": user_profile,
+            "won": True,
+        }
+        entry_form = UserEntryForm(form_data)
+        if entry_form.is_valid():
+            entry_form = entry_form.save()
+            messages.success(request, "Successfully entered raffle!")
+            return redirect("home")
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            entry_form = UserEntryForm()
+            messages.error(
+                request,
+                "Failed to enter raffle \
+                Please ensure the form is valid.",
+            )
     else:
-        form = UserEntryForm()
+        entry_form = UserEntryForm()
 
-    template = "raffle/raffle_entry.html"
-    context = {
-        "form" : form
-    }
+
+    template = "raffle/raffle.html"
+    context = {"entry_form": entry_form}
 
     return render(request, template, context)
 
+    # if request.method == "POST":
+    #     profile = UserProfile.objects.get(user=request.user)
+    #     form = UserEntryForm(initial={"user_profile": profile})
+    #     if form.is_valid():
+    #         form.save()
+    #         messages.success(request, "Successfully entered raffle!")
+    #         return render(request, "home/index.html")
+    # else:
+    #     form = UserEntryForm()
 
+    # template = "raffle/raffle.html"
+    # context = {"form": form}
+
+    # return render(request, template, context)
