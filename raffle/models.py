@@ -5,7 +5,7 @@ from products.models import Collection
 
 # Create your models here.
 class UserEntry(models.Model):
-    user_profile = models.ForeignKey(
+    user_profile = models.OneToOneField(
         UserProfile,
         on_delete=models.SET_NULL,
         null=True,
