@@ -1,14 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from profiles.models import UserProfile
+from raffle.models import UserEntry
 from .forms import UserEntryForm
 
 
 # Create your views here.
 def raffle(request):
     """Add a raffle entry"""
+    user_profile = UserProfile.objects.get(user=request.user)
+    user_entry = UserEntry.objects.get(user_profile = user_profile)
+    if user_entry:
+        context = {
+            "raffle_user": user_entry,
+            "raffle_collection": user_entry.collection,
+            "raffle_description": user_entry.description,
+        }
+        template = "raffle/prize.html"
+
+        return render(request, template, context)
+
     if request.method == "POST":
-        user_profile = UserProfile.objects.get(user=request.user)
         form_data = {
             "collection": request.POST["collection"],
             "description": request.POST["description"],
