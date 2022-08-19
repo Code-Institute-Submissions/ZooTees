@@ -7,6 +7,5 @@ class UserEntryForm(forms.ModelForm):
         model = UserEntry
         fields = "__all__"
         widgets = {
-            "won": forms.HiddenInput(),
             "user_profile": forms.HiddenInput(),
         }

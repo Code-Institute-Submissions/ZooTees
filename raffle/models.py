@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 from profiles.models import UserProfile
 from products.models import Collection
 
@@ -15,8 +16,22 @@ class UserEntry(models.Model):
     collection = models.ForeignKey(
         Collection, null=True, on_delete=models.SET_NULL
     )
-    won = models.BooleanField(default=True)
     description = models.TextField()
 
     def __str__(self):
         return f"{self.user_profile} raffle entry"
+
+
+class Prize(models.Model):
+    raffle_entry = models.OneToOneField(
+        UserEntry, on_delete=models.SET_NULL, null=True
+    )
+
+
+
+    def _generate_coupon_number(self):
+        """
+        Generate a random, unique coupon number using UUID
+        """
+        return uuid.uuid4().hex.upper()
+
