@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+import uuid
 from django.contrib import messages
 from profiles.models import UserProfile
-from raffle.models import UserEntry
+from .models import UserEntry, Prize
 from .forms import UserEntryForm
 
 
@@ -9,12 +10,14 @@ from .forms import UserEntryForm
 def raffle(request):
     """Add a raffle entry"""
     user_profile = UserProfile.objects.get(user=request.user)
-    user_entry = UserEntry.objects.get(user_profile = user_profile)
+    user_entry = UserEntry.objects.filter(user_profile=user_profile)
     if user_entry:
+        prize = Prize.objects.get(raffle_entry=user_entry)
         context = {
             "raffle_user": user_entry,
             "raffle_collection": user_entry.collection,
             "raffle_description": user_entry.description,
+            "prize": prize,
         }
         template = "raffle/prize.html"
 
@@ -25,11 +28,12 @@ def raffle(request):
             "collection": request.POST["collection"],
             "description": request.POST["description"],
             "user_profile": user_profile,
-            "won": True,
         }
         entry_form = UserEntryForm(form_data)
         if entry_form.is_valid():
             entry_form = entry_form.save()
+            code = uuid.uuid4().hex.upper()
+            Prize.objects.create(raffle_entry=entry_form, coupon_code=code)
             messages.success(request, "Successfully entered raffle!")
             return redirect("home")
         else:
