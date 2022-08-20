@@ -8,5 +8,6 @@
     "python.formatting.blackArgs": [
         "--line-length",
         "80"
-    ]
+    ],
+    "editor.fontSize": 16
 }
