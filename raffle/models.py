@@ -29,3 +29,5 @@ class Prize(models.Model):
     )
     coupon_code = models.CharField(max_length=32, null=True, editable=False)
 
+    def __str__(self):
+        return f"{self.raffle_entry.user_profile}'s prize"
