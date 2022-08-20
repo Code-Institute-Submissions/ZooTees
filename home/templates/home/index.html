@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-<main id="main-home">
   {% block content %}
     <div class="px-4 py-5 my-5 mx-5 text-center bg-light text-dark bg-opacity-75">
       <h1 class="display-5 fw-bold"><span><img src="/media/logo/letter_Z.svg" class="logo-letter-z"></img></span>oo<span><img src="/media/logo/letter_T.svg" class="logo-letter-t"></img></span>ees</h1>
@@ -21,6 +20,24 @@
         </div>
       </div>
     </div>
-  </main>
+    <div class="px-4 py-5 my-5 mx-5 text-center bg-light text-dark bg-opacity-75">
+      <h1 class="display-5 fw-bold">Want To Meet Your Fav ZooTees Face To Face?</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          Tell us your favourite collection and why you love them so much and you can get 20% off a ticket to meet them at Dublin Zoo!
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          {% if request.user.is_authenticated %}
+            <a class="btn btn-success btn-lg px-4" href="{% url "raffle" %}">
+              Enter Now
+            </a>
+          {% else %}
+            <a class="btn btn-success btn-lg px-4" href="{% url "raffle_login" %}">
+              Enter Now
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
 
 {% endblock %}
