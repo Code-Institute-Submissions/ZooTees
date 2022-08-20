@@ -18,7 +18,7 @@ class UserEntry(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return f"{self.user_profile} raffle entry"
+        return f"{self.user_profile}'s raffle entry"
 
 
 class Prize(models.Model):
