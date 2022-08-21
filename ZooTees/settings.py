@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ["boutique-shop.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["boutique-shop.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -122,9 +122,6 @@ LOGIN_REDIRECT_URL = "/"
 
 WSGI_APPLICATION = "ZooTees.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {
