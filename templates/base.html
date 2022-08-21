@@ -46,9 +46,9 @@
             href="/"
             class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none"
           >
-            <img src="/media/letter_Z.svg" class="logo-letter-z">
+            <img src="{{ MEDIA_URL }}letter_Z.svg" class="logo-letter-z">
             </img>
-            <img src="/media/letter_T.svg" class="logo-letter-t">
+            <img src="{{ MEDIA_URL }}letter_T.svg"  class="logo-letter-t">
             </img>
           </a>
 
@@ -144,7 +144,7 @@
     </div>
   {% endif %}
     <video autoplay muted loop id="bg-vid">
-      <source src="/media/waterfall.mp4" type="video/mp4">
+      <source src="{{ MEDIA_URL }}waterfall.mp4" type="video/mp4">
     </video>
     {% block page_header %}
     {% endblock %}
