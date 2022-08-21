@@ -1,1 +1,1 @@
-web: gunicorn zootees.wsgi:application
+web: gunicorn ZooTees.wsgi:application
