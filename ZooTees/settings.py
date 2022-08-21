@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     "profiles",
     "raffle",
     "storages",
-    "django_extensions",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
