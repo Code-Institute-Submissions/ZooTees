@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://zootees.herokuapp.com/sitemap.xml
