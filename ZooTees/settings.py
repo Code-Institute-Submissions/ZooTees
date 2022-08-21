@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ["boutique-shop.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["zootees.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
