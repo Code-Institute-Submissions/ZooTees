@@ -1,3 +1,4 @@
+"""collections views"""
 from django.shortcuts import render
 from products.models import Collection
 
@@ -5,10 +6,10 @@ from products.models import Collection
 def collections(request):
     """a view to display all collections"""
 
-    collections = Collection.objects.all()
+    collections_objects = Collection.objects.all()
 
     context = {
-        "collections": collections,
+        "collections": collections_objects,
     }
 
     return render(request, "collections_app/collections.html", context)

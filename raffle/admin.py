@@ -1,10 +1,11 @@
-# Register your models here.
+"""raffle admin"""
 from django.contrib import admin
 
 from .models import UserEntry, Prize
 
 
 class UserEntryAdmin(admin.ModelAdmin):
+    """User Entry Admin"""
     list_display = (
         "user",
         "collection",
@@ -13,6 +14,7 @@ class UserEntryAdmin(admin.ModelAdmin):
     )
 
 class PrizeAdmin(admin.ModelAdmin):
+    """Prize Admin"""
     list_display = (
         "raffle_entry",
         "coupon_code",

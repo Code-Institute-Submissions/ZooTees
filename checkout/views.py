@@ -1,3 +1,4 @@
+"""checkout views"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
@@ -11,6 +12,7 @@ from .models import Order, OrderLineItem
 
 
 def checkout(request):
+    """checkout view"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

@@ -1,6 +1,9 @@
+"""raffle apps"""
 from django.apps import AppConfig
 
 
 class RaffleConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'raffle'
+    """raffle config"""
+
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "raffle"

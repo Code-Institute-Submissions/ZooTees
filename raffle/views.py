@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+"""raffle views"""
 import uuid
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from profiles.models import UserProfile
 from .models import UserEntry, Prize

@@ -72,6 +72,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Order Line Item model """
     order = models.ForeignKey(
         Order,
         null=False,

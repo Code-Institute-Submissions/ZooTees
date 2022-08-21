@@ -1,14 +1,20 @@
+"""checkout admin"""
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
 # Register your models here.
 
+
 class OrderLineItemAdminInline(admin.TabularInline):
+    """orderline admin"""
+
     model = OrderLineItem
     readonly_fields = ("lineitem_total",)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """Order admin"""
+
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = (

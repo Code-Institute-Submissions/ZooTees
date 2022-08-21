@@ -1,3 +1,4 @@
+"""raffle models"""
 from django.db import models
 from profiles.models import UserProfile
 from products.models import Collection
@@ -5,6 +6,7 @@ from products.models import Collection
 
 # Create your models here.
 class UserEntry(models.Model):
+    """User Entry Model"""
     user_profile = models.OneToOneField(
         UserProfile,
         on_delete=models.SET_NULL,
@@ -22,6 +24,7 @@ class UserEntry(models.Model):
 
 
 class Prize(models.Model):
+    """Prize Model"""
     raffle_entry = models.OneToOneField(
         UserEntry,
         on_delete=models.SET_NULL,

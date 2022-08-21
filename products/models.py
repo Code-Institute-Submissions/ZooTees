@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Collection(models.Model):
+    """ Collection models"""
     name = models.CharField(max_length=254)
     description = models.TextField()
     image = models.ImageField(null=True, blank=True)
@@ -11,6 +12,7 @@ class Collection(models.Model):
 
 
 class Product(models.Model):
+    """Products model"""
     collection = models.ForeignKey(
         "Collection", null=True, blank=True, on_delete=models.SET_NULL
     )
